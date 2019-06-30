@@ -1,0 +1,1 @@
+update produtos set codBarras =1020202101 where id =2
