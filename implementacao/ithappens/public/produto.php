@@ -1,6 +1,7 @@
 <?php 
 include 'connection.inc';
 require __DIR__ . '/header.phtml';
+
 print "Produtos em Estoque" .'<br><br>';
 $result = $pdo ->query("SELECT * FROM produtos");
 $result = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -49,15 +50,16 @@ print "Digite o ID ou Codigo de Barras e a Quantidade que deseja!" . '<br>';
     </form>
     <?php 
         
-    $result = $pdo ->query("SELECT * FROM produtos order by hora DESC limit 10");
+    $result = $pdo ->query("SELECT * FROM produtos order by hora DESC limit 4");
 	$result = $result->fetchAll(PDO::FETCH_ASSOC);
 	foreach ($result as $r) {
 	print "id:   " . $r['id'] . '|  ';
 	print "Produto:  "  .$r['nome'] . '|   ';
 	print "Status:  "  .$r['stt'] . '|   ';
 	print "Codigo de Barras:  "  .$r['codBarras'] . '|   ';
-	print "Quantidade:  "  .$r['qtd'] . '|   ';
+	print "Quantidade:  "  .$r['qtd']. '|   ';
 	print "Preço:  "  .$r['preco'] . '<br>';
+	print "Valor Total:  "  .$r['preco'] * $r['qtd']  . '<br>';
 	print '<hr>'. '<br>';
 	
 }
