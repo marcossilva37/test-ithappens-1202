@@ -50,7 +50,7 @@ print "Digite o ID ou Codigo de Barras e a Quantidade que deseja!" . '<br>';
     </form>
     <?php 
         
-    $result = $pdo ->query("SELECT * FROM produtos order by hora DESC limit 4");
+    $result = $pdo ->query("SELECT * FROM produtos order by hora DESC limit 1");
 	$result = $result->fetchAll(PDO::FETCH_ASSOC);
 	foreach ($result as $r) {
 	print "id:   " . $r['id'] . '|  ';
